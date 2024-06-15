@@ -1,0 +1,343 @@
+/*geral*/
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none !important;
+    color: black !important;
+}
+a:hover{
+    background-color: none !important;
+    border-radius: 10px;
+}
+
+.a-logo:hover{
+  background-color: #4d46b356;
+  transition: ease-in-out 2s;
+}
+
+a:not(:hover){
+    border-radius: 10px;
+}
+
+a:active{
+    color: black;
+    background-color: #4D46B3;
+    border-radius: 0;
+}
+
+.dropdown-item:active{
+    background-color: #4D46B3;
+}
+
+li {
+  list-style: none;
+    text-decoration: none;
+    color: black;
+}
+
+input::placeholder{
+  color: black;
+}
+
+/*index*/
+
+.fundo-nav{
+  background-color: #212121;
+}
+
+.index-logo{
+  margin: auto;
+}
+
+.img-logo0 {
+    border-radius: 111111px;
+    width: 58px;
+    height: 58px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.img-logo1{
+    border-radius: 111111px;
+    filter: grayscale(100%) brightness(10000%); /* Remove toda a cor e ajusta o brilho */
+}
+
+.img-logo2 {
+  border-radius: 111111px;
+  filter: brightness(0%); /* Ajusta o brilho ao mínimo */
+}
+.img-logo3 {
+  background-color: white;
+  border-radius: 1111px;
+}
+.texto-0 {
+    font-size: 14px;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+}
+
+/*Animações*/
+@keyframes vento {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(5deg); }
+    100% { transform: rotate(0deg); }
+}
+  
+.sopro-vento {
+    animation: vento 0.5s ease-in-out;
+}
+
+.img-minimalista {
+    border-radius: 10px; /* Adiciona cantos arredondados */
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); /* Adiciona sombra branca suave */
+  }
+  
+.container-documentacao{
+  background-color: #212121;
+  width: 100%;
+  height: 370px;
+}
+
+
+/*--
+pagina contato
+--*/
+.bg-card{
+  background-color: #212121 !important;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background-color: #4D46B3;
+  color: white;
+  text-align: center;
+  border-bottom: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-body {
+  padding: 30px;
+}
+
+.form-control {
+  border-radius: 5px;
+}
+
+.btn {
+  border-radius: 5px;
+  background-color: #007bff;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.contact-info {
+  margin-top: 30px;
+}
+
+.developer {
+  text-align: center;
+}
+
+.developer img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.developer h5 {
+  margin-bottom: 5px;
+}
+
+.developer p {
+  color: #6c757d;
+}
+
+/*tela login*/
+body.body-login {
+  /* Define a imagem de fundo */
+  background-image: url('../assets/fundo-login.jpg');
+
+  /* Garante que a imagem de fundo cubra toda a tela */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Mantém o conteúdo da página fixo */
+  background-attachment: fixed;
+}
+
+.box-login{
+  position: relative;
+  width: 300px;
+  height: 480px;
+  background-color: white;
+  margin-left: 200px;
+  top: 120px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5); /* sombra da caixa */
+  color: white;
+  padding: 24px;
+}
+
+.formulario-login{
+  margin: 10px;
+  padding: 1px;
+}
+
+.logo-box-login{
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+}
+
+.forms-login{
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+}
+
+.input-login{
+  padding: 1px;
+  margin: 0 0 0 12px;
+  width: 80%;
+}
+
+.text-reset-pass{
+  font-size: 14px;
+  margin-left: 2px;
+  padding: 12px;
+  color: white;
+}
+/*verificar problema com o hover e o espaço da box em links*/
+
+.a-reset-pass:hover{
+  background-color: none;
+  padding: 0;
+  margin: 0;
+}
+
+.botao-login{
+  margin: 10px;
+  padding: 1px;
+  width: 80px;
+  color: #4D46B3;
+  font-weight: 700;
+}
+
+.text-registrar{
+  font-size: 10px;
+  color: white;
+  text-align: center;
+}
+
+.cor-register{
+  color: #4D46B3 !important;
+}
+
+/*página registro*/
+body.body-registro {
+  /* Define a imagem de fundo */
+  background-image: url('../assets/tela-registro.jpg');
+
+  /* Garante que a imagem de fundo cubra toda a tela */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Mantém o conteúdo da página fixo */
+  background-attachment: fixed;
+}
+
+.box-registrar{
+  position: relative;
+  width: 300px;
+  height: 550px;
+  background-color: white;
+  margin-left: 200px;
+  top: 120px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5); /* sombra da caixa */
+  color: black;
+  padding: 24px;
+}
+
+/*página download*/
+.pasta-download{
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5); /* sombra da caixa */
+}
+
+/*documentacao*/
+.conteudo-documentacao {
+  margin-top: 30px; /* Espaçamento superior */
+  margin-bottom: 30px; /* Espaçamento inferior */
+}
+
+.subtitulo-documentacao {
+  color: #343a40; /* Cor do subtitulo */
+}
+
+.paragrafo-documentacao {
+  color: #333; /* Cor do parágrafo */
+}
+
+.lista-instalacao, .lista-contribuicao {
+  list-style-type: none; /* Remover marcadores da lista */
+  padding-left: 0; /* Remover espaçamento à esquerda da lista */
+}
+
+.item-lista {
+  padding: 10px; /* Espaçamento interno do item da lista */
+  border-bottom: 1px solid #ccc; /* Adicionar linha de divisão entre os itens */
+}
+
+.item-lista:last-child {
+  border-bottom: none; /* Remover borda inferior do último item */
+}
+
+.codigo-destaque {
+  background-color: #f8f9fa; /* Cor de fundo para destacar código */
+  padding: 10px; /* Espaçamento interno */
+}
+
+.formulario-box{
+  border: 2px solid rgba(0, 0, 0, 0.67); /* Define a largura, estilo e cor da borda */
+  border-radius: 5px; /* Adiciona cantos arredondados à borda */
+}
+
+.texto-erro-registro{
+  color: red;
+  font-size: 14px;
+  margin-left: 12px;
+  position: relative;
+}
+
+/* Media Query - vulgo analises e consertos */
+
+/*body{
+  zoom: 75%;
+}*/

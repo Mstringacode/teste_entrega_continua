@@ -1,0 +1,450 @@
+[
+    {
+        "id": "665b057e71aa4ee2",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2e46410f1e95e81c",
+        "type": "mqtt in",
+        "z": "665b057e71aa4ee2",
+        "name": "MqttGasNet",
+        "topic": "DadosGas",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0d6edc96396bdcf0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 200,
+        "wires": [
+            [
+                "9ace63455e7124d7"
+            ]
+        ]
+    },
+    {
+        "id": "1f03edadf2237b6c",
+        "type": "debug",
+        "z": "665b057e71aa4ee2",
+        "name": "msg.payload",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 930,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "bc60378785005bbf",
+        "type": "csv",
+        "z": "665b057e71aa4ee2",
+        "name": "medida",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "medida",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 520,
+        "y": 200,
+        "wires": [
+            [
+                "21a0c4f2c4d599c0"
+            ]
+        ]
+    },
+    {
+        "id": "9ace63455e7124d7",
+        "type": "string",
+        "z": "665b057e71aa4ee2",
+        "name": "",
+        "methods": [
+            {
+                "name": "replaceAll",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "\""
+                    },
+                    {
+                        "type": "str",
+                        "value": ""
+                    }
+                ]
+            },
+            {
+                "name": "replaceAll",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "\""
+                    },
+                    {
+                        "type": "str",
+                        "value": ""
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 330,
+        "y": 200,
+        "wires": [
+            [
+                "bc60378785005bbf"
+            ]
+        ]
+    },
+    {
+        "id": "21a0c4f2c4d599c0",
+        "type": "function",
+        "z": "665b057e71aa4ee2",
+        "name": "Dados",
+        "func": "const value = msg.payload.medida\n\nmsg.payload={}\nmsg.payload.value=value\n\nmsg.topic = \"INSERT INTO `medidas` (`id`, `value`) VALUES (NULL, :value)\";\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 200,
+        "wires": [
+            [
+                "1f03edadf2237b6c",
+                "bd013b9c3e74b5cd"
+            ]
+        ]
+    },
+    {
+        "id": "bd013b9c3e74b5cd",
+        "type": "mysql",
+        "z": "665b057e71aa4ee2",
+        "mydb": "aca9c8f690fe7bd4",
+        "name": "AetheriusDB",
+        "x": 930,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c03d9308a4983439",
+        "type": "telegram sender",
+        "z": "665b057e71aa4ee2",
+        "name": "",
+        "bot": "26ea805c26398bc3",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 950,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "45524e798c750069",
+        "type": "mqtt in",
+        "z": "665b057e71aa4ee2",
+        "name": "MqttGasNet",
+        "topic": "DadosGas",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0d6edc96396bdcf0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 640,
+        "wires": [
+            [
+                "4e5f9470a8d846d1"
+            ]
+        ]
+    },
+    {
+        "id": "9406d4de447212d8",
+        "type": "csv",
+        "z": "665b057e71aa4ee2",
+        "name": "medida",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "medida",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 520,
+        "y": 640,
+        "wires": [
+            [
+                "5faac32d24955525"
+            ]
+        ]
+    },
+    {
+        "id": "4e5f9470a8d846d1",
+        "type": "string",
+        "z": "665b057e71aa4ee2",
+        "name": "Dados",
+        "methods": [],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 330,
+        "y": 640,
+        "wires": [
+            [
+                "9406d4de447212d8"
+            ]
+        ]
+    },
+    {
+        "id": "5faac32d24955525",
+        "type": "function",
+        "z": "665b057e71aa4ee2",
+        "name": "function 2",
+        "func": "const medida = msg.payload.medida; // Assumindo que msg.payload é um objeto contendo a propriedade 'medida'\n\n// Verificar se 'medida' não é nula ou indefinida\nif (medida !== null && medida !== undefined) {\n    // Preparar a mensagem para o Telegram\n    msg.payload = {\n        chatId: 6711258956, // Substitua pelo seu chatId\n        type: \"message\",\n        content: \"Atenção! Identificado um vazamento de gás: \" + medida // Use a variável 'medida' aqui\n    };\n\n    // Enviar mensagem para o Telegram\n    return msg;\n} else {\n    // Se 'medida' for nula ou indefinida, não faça nada\n    return null;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 640,
+        "wires": [
+            [
+                "c03d9308a4983439"
+            ]
+        ]
+    },
+    {
+        "id": "3f0281aa07c0f8d8",
+        "type": "mqtt in",
+        "z": "665b057e71aa4ee2",
+        "name": "MqttGasNet",
+        "topic": "ValoresGas",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0d6edc96396bdcf0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 420,
+        "wires": [
+            [
+                "8a3648c8d8e440e3"
+            ]
+        ]
+    },
+    {
+        "id": "1fc1551c2716e2d9",
+        "type": "debug",
+        "z": "665b057e71aa4ee2",
+        "name": "msg.payload",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 930,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "846be915af0daed1",
+        "type": "csv",
+        "z": "665b057e71aa4ee2",
+        "name": "medida",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "medida",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 520,
+        "y": 420,
+        "wires": [
+            [
+                "cf3ed4a9a8658732"
+            ]
+        ]
+    },
+    {
+        "id": "8a3648c8d8e440e3",
+        "type": "string",
+        "z": "665b057e71aa4ee2",
+        "name": "",
+        "methods": [
+            {
+                "name": "replaceAll",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "\""
+                    },
+                    {
+                        "type": "str",
+                        "value": ""
+                    }
+                ]
+            },
+            {
+                "name": "replaceAll",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "\""
+                    },
+                    {
+                        "type": "str",
+                        "value": ""
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 330,
+        "y": 420,
+        "wires": [
+            [
+                "846be915af0daed1"
+            ]
+        ]
+    },
+    {
+        "id": "cf3ed4a9a8658732",
+        "type": "function",
+        "z": "665b057e71aa4ee2",
+        "name": "Dados",
+        "func": "const value = msg.payload.medida;\n\nmsg.payload = {};\nmsg.payload.value = value;\n\nmsg.topic = \"INSERT INTO `medidas` (`valor_gas`) VALUES (:value)\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 420,
+        "wires": [
+            [
+                "1fc1551c2716e2d9",
+                "c8088d8f004dd354"
+            ]
+        ]
+    },
+    {
+        "id": "c8088d8f004dd354",
+        "type": "mysql",
+        "z": "665b057e71aa4ee2",
+        "mydb": "aca9c8f690fe7bd4",
+        "name": "AetheriusDB",
+        "x": 930,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0d6edc96396bdcf0",
+        "type": "mqtt-broker",
+        "name": "Mosquitto",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "aca9c8f690fe7bd4",
+        "type": "MySQLdatabase",
+        "name": "aetherius",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "aetherius",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "26ea805c26398bc3",
+        "type": "telegram bot",
+        "botname": "gas_net_bot",
+        "usernames": "",
+        "chatids": "6711258956",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    }
+]

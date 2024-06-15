@@ -1,0 +1,15 @@
+{
+    "name": "user/teste-automatizado",
+    "autoload": {
+        "psr-4": {
+            "User\\TesteAutomatizado\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "mateus",
+            "email": "mateus@gmail.com"
+        }
+    ],
+    "require": {}
+}
