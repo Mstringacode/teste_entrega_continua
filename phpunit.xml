@@ -5,6 +5,4 @@
         <directory>aetherius/tests</directory>
     </testsuite>
 </testsuites>
-
-
 </phpunit>
